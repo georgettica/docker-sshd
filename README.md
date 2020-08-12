@@ -1,4 +1,4 @@
-additional to [https://github.com/panubo/docker-sshd](upstream github) is the ability to connect to it via [https://github.com/sshuttle/sshuttle](sshuttle) 
+additional to [upstream github](https://github.com/panubo/docker-sshd) is the ability to connect to it via [sshuttle](https://github.com/sshuttle/sshuttle) 
 
 # SSHD
 
