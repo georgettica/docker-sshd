@@ -1,3 +1,5 @@
+additional to [https://github.com/panubo/docker-sshd](upstream github) is the ability to connect to it via [https://github.com/sshuttle/sshuttle](sshuttle) 
+
 # SSHD
 
 Minimal Alpine Linux Docker image with `sshd` exposed and `rsync` installed.
@@ -50,6 +52,8 @@ access the container via root and set `SSH_ENABLE_ROOT=true` or mount each user'
 
 Authorized keys must be either owned by root (uid/gid 0), or owned by the uid/gid that corresponds to the
 uid/gid and user specified in `SSH_USERS`.
+
+you might need to change the permissions of the autorised keys
 
 ## SFTP mode
 
@@ -134,6 +138,13 @@ docker run -ti -p 2222:22 \
   -e SSH_USERS="www:48:48" \
   docker.io/panubo/sshd:1.2.1
 ```
+
+### Connect with sshuttle to the container
+* Create the container in your cluster (the `anyuid`) is required by the pod.
+* Choose your preffered way of accessing the pod.
+* piggyback the connection with `kubectl port-forward` and `ssh -L`
+* run the sshuttle command to connect `sshuttle -v -r localhost:<chosen-port> <chosen subnet>`
+
 
 ## Releases
 
